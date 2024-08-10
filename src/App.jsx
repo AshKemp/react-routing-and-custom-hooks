@@ -1,10 +1,37 @@
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useRoutes } from "react-router-dom";
 import CommentsList from "./pages/comments";
 import ReceipeList from "./pages/receipes";
 import ReceipeDetails from "./pages/receipe-details";
 import NotFound from "./pages/not-found";
 import Layout from "./pages/components/layout";
 
+function CustomRoutes() {
+  const element = useRoutes([
+    {
+      path: "/home",
+      element: <Layout />,
+      children: [
+        {
+          path: "receipe-list",
+          element: <ReceipeList />,
+        },
+        {
+          path: "comments-list",
+          element: <CommentsList />,
+        },
+        {
+          path: "receipe-list/:id",
+          element: <ReceipeDetails />,
+        },
+        {
+          path: "*",
+          element: <NotFound />,
+        },
+      ],
+    },
+  ]);
+  return element;
+}
 function App() {
   const navigate = useNavigate();
   return (
@@ -27,7 +54,7 @@ function App() {
       >
         Navigate to comments list page
       </button>
-      <Routes>
+      {/* <Routes>
         <Route path="/home" element={<Layout />}>
           <Route path="receipe-list" element={<ReceipeList />} />
           <Route path="comments-list" element={<CommentsList />} />
@@ -36,6 +63,8 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+       */}
+      <CustomRoutes />
     </>
   );
 }
