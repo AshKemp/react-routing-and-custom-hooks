@@ -1,6 +1,8 @@
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import CommentsList from "./pages/comments";
 import ReceipeList from "./pages/receipes";
+import ReceipeDetails from "./pages/receipe-details";
+import NotFound from "./pages/not-found";
 
 function App() {
   const navigate = useNavigate();
@@ -27,6 +29,8 @@ function App() {
       <Routes>
         <Route path="/receipe-list" element={<ReceipeList />} />
         <Route path="/comments-list" element={<CommentsList />} />
+        <Route path="/receipe-list/:id" element={<ReceipeDetails />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
