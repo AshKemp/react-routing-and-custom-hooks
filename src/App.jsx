@@ -4,6 +4,7 @@ import ReceipeList from "./pages/receipes";
 import ReceipeDetails from "./pages/receipe-details";
 import NotFound from "./pages/not-found";
 import Layout from "./pages/components/layout";
+import ReactHookFormExamplePage from "./pages/react-hook-form-example";
 
 function CustomRoutes() {
   const element = useRoutes([
@@ -23,11 +24,15 @@ function CustomRoutes() {
           path: "receipe-list/:id",
           element: <ReceipeDetails />,
         },
-        {
-          path: "*",
-          element: <NotFound />,
-        },
       ],
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+    {
+      path: "/react-hook-form",
+      element: <ReactHookFormExamplePage />,
     },
   ]);
   return element;
@@ -35,9 +40,9 @@ function CustomRoutes() {
 function App() {
   const navigate = useNavigate();
   return (
-    <>
-      <h1>React routing and custom hooks</h1>
-      <div>
+    <div>
+      {/* <h1>React routing and custom hooks</h1> */}
+      {/* <div>
         <Link to={"/home/receipe-list"}>
           Alternative way of navigating to receipt list page
         </Link>
@@ -53,7 +58,7 @@ function App() {
         style={{ background: "black", color: "white" }}
       >
         Navigate to comments list page
-      </button>
+      </button> */}
       {/* <Routes>
         <Route path="/home" element={<Layout />}>
           <Route path="receipe-list" element={<ReceipeList />} />
@@ -65,7 +70,7 @@ function App() {
       </Routes>
        */}
       <CustomRoutes />
-    </>
+    </div>
   );
 }
 
