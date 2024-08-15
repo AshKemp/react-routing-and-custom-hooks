@@ -7,6 +7,7 @@ import Layout from "./pages/components/layout";
 import ReactHookFormExamplePage from "./pages/react-hook-form-example";
 import Hooks from "./pages/hooks";
 import UseMemoExample from "./pages/use-memo-example";
+import UseCallBackExample from "./pages/use-callback-example";
 
 function CustomRoutes() {
   const element = useRoutes([
@@ -43,6 +44,10 @@ function CustomRoutes() {
     {
       path: "/memo",
       element: <UseMemoExample />,
+    },
+    {
+      path: "/callback",
+      element: <UseCallBackExample />,
     },
   ]);
   return element;
