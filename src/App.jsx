@@ -6,6 +6,7 @@ import NotFound from "./pages/not-found";
 import Layout from "./pages/components/layout";
 import ReactHookFormExamplePage from "./pages/react-hook-form-example";
 import Hooks from "./pages/hooks";
+import UseMemoExample from "./pages/use-memo-example";
 
 function CustomRoutes() {
   const element = useRoutes([
@@ -38,6 +39,10 @@ function CustomRoutes() {
     {
       path: "/hooks",
       element: <Hooks />,
+    },
+    {
+      path: "/memo",
+      element: <UseMemoExample />,
     },
   ]);
   return element;
