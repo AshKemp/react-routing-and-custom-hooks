@@ -5,6 +5,7 @@ import ReceipeDetails from "./pages/receipe-details";
 import NotFound from "./pages/not-found";
 import Layout from "./pages/components/layout";
 import ReactHookFormExamplePage from "./pages/react-hook-form-example";
+import Hooks from "./pages/hooks";
 
 function CustomRoutes() {
   const element = useRoutes([
@@ -33,6 +34,10 @@ function CustomRoutes() {
     {
       path: "/react-hook-form",
       element: <ReactHookFormExamplePage />,
+    },
+    {
+      path: "/hooks",
+      element: <Hooks />,
     },
   ]);
   return element;
